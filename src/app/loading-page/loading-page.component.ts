@@ -16,24 +16,16 @@ export class LoadingPageComponent implements OnInit{
   }
   //init
   ngOnInit(): void {
-    setInterval(()=>{
       //check is server is running
       this.userService.testConnection().subscribe(
         (response) => {
           console.log(response);
-          setTimeout(()=>{
-            this.userService.isOpen();
-
-          }, 5000)
+          this.userService.setIsOpen(true);
         },
         (error) => {
           console.log(error);
           this.message = "Veuillez patientez, nous chargons les données"
         }
-
       );
-    }, 1000)
   }
-
-
 }

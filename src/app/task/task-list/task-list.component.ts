@@ -23,6 +23,7 @@ interface Task {
 export class TaskListComponent implements OnInit {
   tasks: Task[];
   isEmpty: boolean = false;
+  bg: any;
 
   constructor(private taskService: TaskService,
     private userService: UserService, public dialog: MatDialog
@@ -32,6 +33,7 @@ export class TaskListComponent implements OnInit {
     }
 
   ngOnInit(): void {
+    this.bg = "btn btn-success"
     const userId = this.userService.getUserId();
     this.taskService.loadTasks(userId);
     this.taskService.getTasks$().subscribe(

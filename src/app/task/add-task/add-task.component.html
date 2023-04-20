@@ -1,59 +1,62 @@
-<div class="container w-50 m-auto">
-  <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
-    <div class="form-group">
-      <label for="title">Titre:</label>
-      <input type="text" class="form-control" id="title" [(ngModel)]="newTask.title" name="title" required #title="ngModel">
-      <!-- afficher l'erreur -->
-      <div *ngIf="title.invalid && (title.dirty || title.touched)">
-        <p class="text-danger alert alert-danger">Un titre est requis</p>
+<div class="container-fluid">
+  <div class="container w-50 m-auto">
+    <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+      <div class="form-group">
+        <label for="title">Titre:</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="newTask.title" name="title" required #title="ngModel">
+        <!-- afficher l'erreur -->
+        <div *ngIf="title.invalid && (title.dirty || title.touched)">
+          <p class="text-danger alert alert-danger">Un titre est requis</p>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="description">Description:</label>
-      <textarea class="form-control" id="description" rows="3" [(ngModel)]="newTask.description" name="description" required #description="ngModel"></textarea>
-      <!-- afficher l'erreur -->
-      <div *ngIf="description.invalid && (description.dirty || description.touched)">
-        <p class="text-danger alert alert-danger">Une description de la tache est requise</p>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" rows="3" [(ngModel)]="newTask.description" name="description" required #description="ngModel"></textarea>
+        <!-- afficher l'erreur -->
+        <div *ngIf="description.invalid && (description.dirty || description.touched)">
+          <p class="text-danger alert alert-danger">Une description de la tache est requise</p>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="progress">Progression </label>
-      <select class="form-control w-100" appearance="fill" id="progress" [(ngModel)]="newTask.progress" name="progress" required #progress="ngModel">
-        <option value="Not Started">Aucune</option>
-        <option value="In Progress">En cours</option>
-        <option value="Completed">Terminée</option>
-      </select>
-      <!-- afficher l'erreur -->
-      <div *ngIf="progress.invalid && (progress.dirty || progress.touched)">
-        <p class="text-danger alert alert-danger">Une progression est requise</p>
+      <div class="form-group">
+        <label for="progress">Progression </label>
+        <select class="form-control w-100" appearance="fill" id="progress" [(ngModel)]="newTask.progress" name="progress" required #progress="ngModel">
+          <option value="Not Started">Aucune</option>
+          <option value="In Progress">En cours</option>
+          <option value="Completed">Terminée</option>
+        </select>
+        <!-- afficher l'erreur -->
+        <div *ngIf="progress.invalid && (progress.dirty || progress.touched)">
+          <p class="text-danger alert alert-danger">Une progression est requise</p>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="priority">Priorité</label>
-      <select class="form-control w-100" appearance="fill" id="priority" [(ngModel)]="newTask.priority" name="priority" required #priority="ngModel">
-        <option value="HIGH">Haute</option>
-        <option value="MEDIUM">Moyenne</option>
-        <option value="LOW">Basse</option>
-      </select>
-      <!-- afficher l'erreur -->
-      <div *ngIf="priority.invalid && (priority.dirty || priority.touched)">
-        <p class="text-danger alert alert-danger">Une priorité est requise</p>
+      <div class="form-group">
+        <label for="priority">Priorité</label>
+        <select class="form-control w-100" appearance="fill" id="priority" [(ngModel)]="newTask.priority" name="priority" required #priority="ngModel">
+          <option value="HIGH">Haute</option>
+          <option value="MEDIUM">Moyenne</option>
+          <option value="LOW">Basse</option>
+        </select>
+        <!-- afficher l'erreur -->
+        <div *ngIf="priority.invalid && (priority.dirty || priority.touched)">
+          <p class="text-danger alert alert-danger">Une priorité est requise</p>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="createdDate">Date de création:</label>
-      <input type="datetime-local" class="form-control" id="createdDate" [(ngModel)]="newTask.createDate" name="createdDate" required #createDate="ngModel">
-      <!-- afficher l'erreur -->
-      <div *ngIf="createDate.invalid && (createDate.dirty || createDate.touched)">
-        <p class="text-danger alert alert-danger">Une date de création est requise</p>
+      <div class="form-group">
+        <label for="createdDate">Date de création:</label>
+        <input type="datetime-local" class="form-control" id="createdDate" [(ngModel)]="newTask.createDate" name="createdDate" required #createDate="ngModel">
+        <!-- afficher l'erreur -->
+        <div *ngIf="createDate.invalid && (createDate.dirty || createDate.touched)">
+          <p class="text-danger alert alert-danger">Une date de création est requise</p>
+        </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label for="dueDate">Date limite:</label>
-      <input type="datetime-local" class="form-control" id="dueDate" [(ngModel)]="newTask.deadLine" name="dueDate">
-    </div>
-    <div class="d-flex justify-content-center">
-      <button type="submit" class="btn btn-primary" mat-flat-button color="primary" [disabled]="taskForm.invalid">Ajouter</button>
-    </div>
-  </form>
+      <div class="form-group">
+        <label for="dueDate">Date limite:</label>
+        <input type="datetime-local" class="form-control" id="dueDate" [(ngModel)]="newTask.deadLine" name="dueDate">
+      </div>
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary" mat-flat-button color="primary" [disabled]="taskForm.invalid">Ajouter</button>
+      </div>
+    </form>
+  </div>
+
 </div>

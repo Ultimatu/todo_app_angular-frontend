@@ -1,33 +1,31 @@
-<div class="container">
-  <mat-toolbar color="primary" class="d-flex justify-content-between  animated fadeInDown">
-    <span>Task Manager</span>
-    <button mat-icon-button color="warn" (click)="onTaskListButtonClick()" class="btn btn-primary mr-3">
-      <mat-icon>list</mat-icon>
-      Task List
-    </button>
-    <!-- add task -->
-    <button mat-icon-button color="warn" (click)="onAddTaskButtonClick()" class="btn btn-primary mr-3">
-      <mat-icon>add</mat-icon>
-      Add Task
-    </button>
-    <!-- userprofile -->
-    <button mat-icon-button color="warn" (click)="onUserProfileButtonClick()" class="btn btn-primary mr-3">
-      <mat-icon>person</mat-icon>
-      User Profile
-    </button>
+<mat-toolbar color="primary" class="animated fadeInDown">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center">
+    <span class="h3 mb-0">Task Manager</span>
+    <div>
+      <button mat-icon-button (click)="onTaskListButtonClick()" class="btn btn-primary" title="list de tĉhes">
+        <i class="material-icons icon-lg ">list</i>
+      </button>
+      <button mat-icon-button (click)="onAddTaskButtonClick()" class="btn btn-primary" title="Ajouter une tâche">
+        <i class="material-icons icon-lg ">add</i>
+      </button>
+      <button mat-icon-button (click)="onUserProfileButtonClick()" class="btn btn-primary" title="Profile">
+        <i class="material-icons icon-lg ">person</i>
+      </button>
+      <button mat-icon-button (click)="logout()" class="btn btn-danger" title="Deconnecter">
+        <i class="material-icons icon-lg ">logout</i>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>
 
-    <!-- logout -->
-    <button mat-icon-button color="warn" (click)="logout()" class="btn btn-danger mr-3">
-      <mat-icon>logout</mat-icon>
-      Logout
-    </button>
-  </mat-toolbar>
-</div>
 <!-- display message *ifTask -->
-<div *ngIf="onlyTask" class="alert alert-info">
-  <h4>{{message}}</h4>
-</div>
-
-<div class="container my-3 animated fadeInUp">
+<div class="container-fluid forChild my-3 mt-0 animated fadeInUp">
   <router-outlet></router-outlet>
+</div>
+<div class="footer">
+  <footer>
+    <ul>
+
+    </ul>
+  </footer>
 </div>

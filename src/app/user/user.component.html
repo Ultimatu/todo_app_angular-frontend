@@ -1,22 +1,17 @@
-<div class="container">
-  <h1> Welcome to task manager, please login/signup</h1>
-  <div class="row">
-    <div class="col-md-8 offset-md-2">
-      <div class="card bg-light">
-        <div class="card-header d-flex justify-content-between">
-          <ul class="nav nav-tabs card-header-tabs">
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/login" routerLinkActive="active">Sign In</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" routerLink="/signup" routerLinkActive="active">Sign Up</a>
-            </li>
-          </ul>
-        </div>
-        <div class="card-body">
-          <router-outlet></router-outlet>
-        </div>
-      </div>
-    </div>
+<div class="container-fluid ">
+  <div class="alert alert-info">
+    <h1>Welcome on task manager</h1>
+    <span>SignUp or login if already have count</span>
   </div>
+  <mat-tab-group animationDuration="200ms" class="w-75 m-auto">
+
+    <mat-tab label="Login">
+      <app-login></app-login>
+    </mat-tab >
+    <mat-tab label="SignUp">
+      <app-signup></app-signup>
+    </mat-tab>
+
+  </mat-tab-group>
+
 </div>

@@ -29,15 +29,14 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { TaskGuard } from './authLogin/TaskGuard';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatOptionModule} from '@angular/material/core';
+import {MatOptionModule, MatRippleModule} from '@angular/material/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { PasswordRecoveryComponent } from './user/password-recovery/password-recovery.component';
 import { DeleteDialogComponent } from './task/delete-task/delete-dialog/delete-dialog.component';
 import { SaveTaskComponent } from './task/task-list/save-task/save-task.component';
 import { StartTaskComponent } from './task/task-list/start-task/start-task.component';
-import { LoadingPageComponent } from './loading-page/loading-page.component';
-import { ServerIsOPen } from './authLogin/ServerIsOpen';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -55,7 +54,6 @@ import { ServerIsOPen } from './authLogin/ServerIsOpen';
     DeleteDialogComponent,
     SaveTaskComponent,
     StartTaskComponent,
-    LoadingPageComponent,
 
   ],
   imports: [
@@ -80,9 +78,11 @@ import { ServerIsOPen } from './authLogin/ServerIsOpen';
     TranslateModule.forRoot(),
     MatDialogModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatBadgeModule,
+    MatRippleModule
   ],
-  providers: [UserService, TaskService, TaskGuard, ServerIsOPen],
+  providers: [UserService, TaskService, TaskGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

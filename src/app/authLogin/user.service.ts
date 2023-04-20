@@ -20,6 +20,7 @@ export class UserService {
   private user_data: User = new User();
   private userId: number = 0;
   private loggedIn: boolean = false;
+  private isopen: boolean = false;
 
 
   constructor(private http: HttpClient, private router: Router) {
@@ -27,11 +28,14 @@ export class UserService {
   }
   //test server connection
   public testConnection(): Observable<any> {
-    return this.http.get(`${this.API_URL}/sayHello`);
+    return this.http.get(`${this.API_URL}/sayhello`);
   }
   public isOpen(){
-    return this.router.navigate(["login"]);
-
+    return this.isopen
+  }
+  public setIsOpen(isOpen :boolean){
+    this.isopen = isOpen;
+    this.gotoUserLogin()
   }
   public isLoggedIn() {
     return this.loggedIn;

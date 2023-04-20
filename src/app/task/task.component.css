@@ -1,0 +1,17 @@
+.icon-lg {
+  font-size: 28px;
+}
+.forChild{
+  width: 100% !important;
+  background-color: rgb(85, 157, 170);
+  height: auto;
+  color: white;
+
+}
+
+/* ajustement de la taille des icônes pour les petits écrans */
+@media (max-width: 576px) {
+  .icon-lg {
+    font-size: 24px;
+  }
+}

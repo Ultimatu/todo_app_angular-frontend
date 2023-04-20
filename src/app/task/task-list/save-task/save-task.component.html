@@ -1,6 +1,6 @@
-<div class="container" *ngIf="!saveSuccessfully">
+<div class="container text-white bg-dark" *ngIf="!saveSuccessfully">
   <h2>Terminer la tâche {{ task.title }}</h2>
-  <div class="card">
+  <div class="card bg-dark">
     <div class="card-body">
       <h5 class="card-title">{{ task.title }}</h5>
       <p class="card-text">{{ task.description }}</p>
@@ -15,16 +15,16 @@
     </div>
   </div>
   <!-- Modal de confirmation de suppression -->
-  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
+  <div class="modal fade bg-dark" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog bg-dark" role="document">
+      <div class="modal-content bg-dark">
+        <div class="modal-header bg-dark">
           <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de fin de tâche</h5>
           <button type="button" class="close btn btn-close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-dark">
           Êtes-vous sûr d'avoir terminé cette tache "{{ task.title }}" ?
         </div>
         <div class="modal-footer">
@@ -38,7 +38,7 @@
 <!-- message save successfully -->
 <div class="container bg-success" *ngIf="saveSuccessfully">
   <h2>La tâche {{ task.title }} a été terminée</h2>
-  <div class="card">
+  <div class="card bg-success">
     <div class="card-body">
       <h5 class="card-title">{{ task.title }}</h5>
       <p class="card-text">{{ task.description }}</p>
