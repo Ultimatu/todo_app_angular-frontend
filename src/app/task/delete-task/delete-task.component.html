@@ -1,0 +1,37 @@
+<div class="container" *ngIf="!deletedSuccessfully">
+  <h2>Supprimer la tâche {{ task.title }}</h2>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{ task.title }}</h5>
+      <p class="card-text">{{ task.description }}</p>
+      <p class="card-text">Progression : {{ task.progress }}</p>
+      <p class="card-text">Priorité : {{ task.priority }}</p>
+      <p class="card-text">Créée le : {{ task.createDate }}</p>
+      <p class="card-text">Date limite : {{ task.deadLine }}</p>
+      <div class="d-flex justify-content-between w-75 m-auto">
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal">Supprimer</button>
+        <a routerLink="/tasks" class="btn btn-info">Retour</a>
+      </div>
+    </div>
+  </div>
+  <!-- Modal de confirmation de suppression -->
+  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de suppression</h5>
+          <button type="button" class="close btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Êtes-vous sûr de vouloir supprimer la tâche "{{ task.title }}" ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteConfirmed()">Supprimer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

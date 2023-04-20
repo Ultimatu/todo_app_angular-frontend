@@ -1,0 +1,22 @@
+<div class="container">
+  <h1> Welcome to task manager, please login/signup</h1>
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card bg-light">
+        <div class="card-header d-flex justify-content-between">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/login" routerLinkActive="active">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/signup" routerLinkActive="active">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

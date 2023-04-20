@@ -1,0 +1,38 @@
+<div class="container" *ngIf="!pictureForm">
+  <h1> {{title}} </h1>
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-content">
+            <!-- card img -->
+            <div class="card-image">
+              <img src="{{user.photo_url}}" alt="profile picture" width="250">
+            </div>
+            <!-- card title -->
+            <div class="card-title">
+              <h4> {{user.name}} </h4>
+            </div>
+            <!-- card content -->
+            <div class="card-content">
+              <p> {{user.email}} </p>
+              <p> {{user.phone}} </p>
+              <p> {{user.surname}} </p>
+            </div>
+            <button class="btn btn-info" (click)="addProfilePic()">ajouter une photo de profile</button>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+<!-- form to add profile picture -->
+<div class="container" *ngIf="pictureForm">
+  <form (ngSubmit)="onSubmit()" #pictureProfile="ngForm">
+    <div class="form-group">
+      <label>Upload Profile Picture</label>
+      <br>
+      <input type="file" (change)="handleFileInput($event)" name="photo_url" required />
+      <br>
+    </div>
+    <button type="submit" [disabled]="!pictureProfile.form.valid" class="bg-success text-white fs-4 m-auto" mat-raised-button>Mettre à jour</button>
+  </form>
+</div>

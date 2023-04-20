@@ -1,0 +1,36 @@
+<div *ngIf="task_id">
+  <div class="container">
+    <h2 class="text-center">Modifier une tâche</h2>
+    <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+      <div class="form-group" [class.has-error]="submitted && taskForm.controls['title'].invalid">
+        <label for="title">Titre:</label>
+        <input type="text" class="form-control" id="title" [(ngModel)]="task.title" name="title" required>
+        <div *ngIf="submitted && taskForm.controls['title'].invalid" class="help-block">Titre est requis</div>
+      </div>
+      <div class="form-group"  [class.has-error]="submitted && taskForm.controls['description'].invalid">
+        <label for="description">Description:</label>
+        <textarea class="form-control" id="description" [(ngModel)]="task.description" name="description" required></textarea>
+        <div *ngIf="submitted && taskForm.controls['description'].invalid" class="help-block">La description est requise</div>
+      </div>
+      <div class="form-group" [class.has-error]="submitted && taskForm.controls[''].invalid">
+        <label for="createdDate">Date de création:</label>
+        <input type="datetime-local" class="form-control" id="createdDate" [(ngModel)]="task.createDate" name="createdDate" required>
+      </div>
+      <div class="form-group">
+        <label for="progress">Progress:</label>
+        <select class="form-control" id="progress" [(ngModel)]="task.progress" name="progress">
+          <option *ngFor="let progressItem of progressOptions" [value]="progressItem">{{progressItem}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priorité:</label>
+        <select class="form-control" id="priority" [(ngModel)]="task.priority" name="priority" required>
+          <option value="HIGH">Haute</option>
+          <option value="MEDIUM">Moyenne</option>
+          <option value="LOW">Basse</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!taskForm.form.valid">Modifier</button>
+    </form>
+  </div>
+</div>

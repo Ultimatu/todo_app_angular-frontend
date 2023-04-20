@@ -1,0 +1,54 @@
+<div class="container-fluid" *ngIf="!isEmpty">
+  <h1>Task List</h1>
+  <input type="search" id="searchBard" placeholder="Search..." class="btn btn-search w-100">
+  <table  id="myTable" class="table table-striped table-hover animate__animated animate__fadeIn table-info">
+    <thead>
+      <tr>
+        <th scope="col" >Titre</th>
+        <th scope="col" >Description</th>
+        <th scope="col" >Date de crétion</th>
+        <th scope="col" >Progression</th>
+        <th scope="col" >Priorité</th>
+        <th scope="col" >Date limite</th>
+        <th scope="col" >Commencé</th>
+        <th scope="col">Terminé</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.createDate  | date:'medium' }} </td>
+        <td>{{ task.progress }}</td>
+        <td>{{ task.priority }}</td>
+        <td>{{ task.deadLine | date:'medium' }}</td>
+        <td>
+          <button mat-raised-button color="primary" (click)="onStart(task.id)">
+            <mat-icon>play_arrow</mat-icon>
+          </button>
+        <td>
+          <button mat-raised-button color="warn" (click)="onSave(task.id)">
+            <mat-icon>save</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button mat-icon-button color="primary" (click)="onEdit(task.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button mat-icon-button color="accent" (click)="onDelete(task.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+<div class="alert alert-warning" *ngIf="isEmpty">
+  Votre carnet de tâches est vide.
+  cliquez <a class="text-danger" (click)="addTask()">ici</a> pour planifier une tâche.
+
+</div>

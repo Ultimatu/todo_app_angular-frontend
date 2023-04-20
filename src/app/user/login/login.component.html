@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="card my-5">
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm" class="d-flex flex-column">
+        <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [value]="user.email" [(ngModel)]="user.email" name="email" required email #email="ngModel">
+          <mat-error *ngIf="email.invalid">L'email est requis</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Mot de passe</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" name="password" required minlength="8" #password="ngModel">
+          <button mat-icon-button matSuffix type="button" (click)="hide = !hide" [attr.aria-label]="'hide password' | translate">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <mat-error *ngIf="password.invalid">
+            Le mot de passe est requis et doit contenir au moins 8 caractères.
+          </mat-error>
+        </mat-form-field>
+          <mat-slide-toggle class="mt-3 d-flex align-items-center justify-content-center m-2" [(ngModel)]="user.rememberMe" (change)="rememberMeChanged()" name="rememberMe">
+            <span>
+              remember me
+            </span>
+          </mat-slide-toggle>
+          <button type="submit" [disabled]="!userForm.form.valid" class="bg-success text-white fs-4  m-auto" mat-raised-button>Login</button>
+      </form>
+
+      <div class="d-flex justify-content-center mt-3">
+        <a class="btn btn-warning" (click)="passRecovery()">Mot de passe oublié ?</a>
+      </div>
+    </div>
+  </div>
+</div>
