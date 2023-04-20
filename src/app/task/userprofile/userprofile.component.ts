@@ -32,13 +32,18 @@ export class UserprofileComponent {
       this.selectedFile = new File([], "");
 
     }
-    ngOnInt() {
+    ngOnInit():void {
+      console.log("ngOnInit");
       this.user = this.userService.getUserData();
+      console.log(this.user);
       this.userService.getUserProfilePic().subscribe(response => {
+        console.log(response);
         const reader = new FileReader();
         reader.onload = () => {
-          this.photoUrl = reader.result as string;
-          console.log(this.photoUrl)
+          this.photoUrl = reader.result as string?? "./home/tonde/IdeaProjects/frontend/src/assets/images/no_file.png"
+          //this home/tonde/.. is for my system tree then put here 
+
+
         };
         reader.readAsDataURL(response);
         },

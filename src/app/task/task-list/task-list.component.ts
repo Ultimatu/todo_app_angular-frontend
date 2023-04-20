@@ -28,6 +28,7 @@ export class TaskListComponent implements OnInit {
     private userService: UserService, public dialog: MatDialog
     ) {
       this.tasks = [];
+      this.isEmpty = false;
     }
 
   ngOnInit(): void {
@@ -37,11 +38,11 @@ export class TaskListComponent implements OnInit {
       (tasks) => this.tasks = tasks);
 
     setTimeout(() => {
-      console.log(this.tasks);
+
       if(this.tasks.length == 0){
         this.isEmpty = true;
       }
-    }, 1000);
+    }, 3000);
 
 
   }
