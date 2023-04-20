@@ -26,19 +26,18 @@ import { CommonModule } from '@angular/common';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import  {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatDialogModule} from '@angular/material/dialog';
-
 import { TaskGuard } from './authLogin/TaskGuard';
-//mat select
 import {MatSelectModule} from '@angular/material/select';
-//mat datepicker
 import {MatDatepickerModule} from '@angular/material/datepicker';
-//mat option
 import {MatOptionModule} from '@angular/material/core';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { TranslateModule, TranslatePipe } from '@ngx-translate/core';
 import { PasswordRecoveryComponent } from './user/password-recovery/password-recovery.component';
 import { DeleteDialogComponent } from './task/delete-task/delete-dialog/delete-dialog.component';
 import { SaveTaskComponent } from './task/task-list/save-task/save-task.component';
 import { StartTaskComponent } from './task/task-list/start-task/start-task.component';
+import { LoadingPageComponent } from './loading-page/loading-page.component';
+import { ServerIsOPen } from './authLogin/ServerIsOpen';
 
 @NgModule({
   declarations: [
@@ -56,6 +55,7 @@ import { StartTaskComponent } from './task/task-list/start-task/start-task.compo
     DeleteDialogComponent,
     SaveTaskComponent,
     StartTaskComponent,
+    LoadingPageComponent,
 
   ],
   imports: [
@@ -79,13 +79,10 @@ import { StartTaskComponent } from './task/task-list/start-task/start-task.compo
     MatOptionModule,
     TranslateModule.forRoot(),
     MatDialogModule,
-    MatSlideToggleModule
-
-
-
-
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
-  providers: [UserService, TaskService, TaskGuard],
+  providers: [UserService, TaskService, TaskGuard, ServerIsOPen],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -16,13 +16,17 @@ import { PasswordRecoveryComponent } from './user/password-recovery/password-rec
 import { DeleteDialogComponent } from './task/delete-task/delete-dialog/delete-dialog.component';
 import { SaveTaskComponent } from './task/task-list/save-task/save-task.component';
 import { StartTaskComponent } from './task/task-list/start-task/start-task.component';
+import { ServerIsOPen } from './authLogin/ServerIsOpen';
+import { LoadingPageComponent } from './loading-page/loading-page.component';
 
 
 const routes: Routes = [
   //default path
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  //path login, signup tasks
-  { path: 'login', component: UserComponent,
+  { path: '', redirectTo: '/loading_datas', pathMatch: 'full',
+  },
+  {path: 'loading_datas', component: LoadingPageComponent
+  },
+  { path: 'login', component: UserComponent, canActivate: [ServerIsOPen],
     children:[{
     path:'', component: LoginComponent}]
   },

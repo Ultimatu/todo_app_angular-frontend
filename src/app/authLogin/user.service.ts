@@ -25,7 +25,14 @@ export class UserService {
   constructor(private http: HttpClient, private router: Router) {
 
   }
+  //test server connection
+  public testConnection(): Observable<any> {
+    return this.http.get(`${this.API_URL}/sayHello`);
+  }
+  public isOpen(){
+    return this.router.navigate(["login"]);
 
+  }
   public isLoggedIn() {
     return this.loggedIn;
   }

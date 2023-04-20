@@ -1,27 +1,33 @@
-<mat-toolbar color="primary" class="d-flex justify-content-between">
-  <span>Task Manager</span>
-  <button mat-icon-button color="Warn" (click)="onTaskListButtonClick()" routerLink="/task_list" routerLinkActive="active">
-    <mat-icon>list</mat-icon>
-  </button>
-  <!-- add task -->
-  <button mat-icon-button color="Warn" (click)="onAddTaskButtonClick()" routerLink="/add_task" routerLinkActive="active">
-    <mat-icon>add</mat-icon>
-  </button>
-  <!-- userprofile -->
-  <button mat-icon-button color="Warn" (click)="onUserProfileButtonClick()" routerLink="/userprofile" routerLinkActive="active">
-    <mat-icon>person</mat-icon>
-  </button>
+<div class="container">
+  <mat-toolbar color="primary" class="d-flex justify-content-between  animated fadeInDown">
+    <span>Task Manager</span>
+    <button mat-icon-button color="warn" (click)="onTaskListButtonClick()" class="btn btn-primary mr-3">
+      <mat-icon>list</mat-icon>
+      Task List
+    </button>
+    <!-- add task -->
+    <button mat-icon-button color="warn" (click)="onAddTaskButtonClick()" class="btn btn-primary mr-3">
+      <mat-icon>add</mat-icon>
+      Add Task
+    </button>
+    <!-- userprofile -->
+    <button mat-icon-button color="warn" (click)="onUserProfileButtonClick()" class="btn btn-primary mr-3">
+      <mat-icon>person</mat-icon>
+      User Profile
+    </button>
 
-  <!-- logout -->
-  <button mat-icon-button color="Warn" (click)="logout()">
-    <mat-icon>logout</mat-icon>
-  </button>
-</mat-toolbar>
+    <!-- logout -->
+    <button mat-icon-button color="warn" (click)="logout()" class="btn btn-danger mr-3">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+  </mat-toolbar>
+</div>
 <!-- display message *ifTask -->
 <div *ngIf="onlyTask" class="alert alert-info">
   <h4>{{message}}</h4>
 </div>
 
-<div class="container mt-3">
+<div class="container my-3 animated fadeInUp">
   <router-outlet></router-outlet>
 </div>
